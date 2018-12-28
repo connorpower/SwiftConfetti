@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cdC-ti-XoA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="sfA-So-ZZO">
+            <objects>
+                <viewController id="cdC-ti-XoA" customClass="MainViewController" customModule="ConfettiTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dbW-4o-Wy5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjV-eA-vG9" userLabel="BackgroundConfetti" customClass="ConfettiView" customModule="ConfettiTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </sceneKitView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ath-GT-rfK">
+                                <rect key="frame" x="123.5" y="269.5" width="128" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5Y-uQ-7Rd">
+                                        <rect key="frame" x="41" y="49" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="FRl-ug-ukn"/>
+                                    <constraint firstAttribute="height" constant="128" id="Gw7-jx-B1X"/>
+                                    <constraint firstItem="A5Y-uQ-7Rd" firstAttribute="centerX" secondItem="ath-GT-rfK" secondAttribute="centerX" id="gqK-iD-Shx"/>
+                                    <constraint firstItem="A5Y-uQ-7Rd" firstAttribute="centerY" secondItem="ath-GT-rfK" secondAttribute="centerY" id="paH-NB-nIK"/>
+                                </constraints>
+                            </view>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nj1-a2-LQk" userLabel="Foreground Confetti" customClass="ConfettiView" customModule="ConfettiTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nj1-a2-LQk" firstAttribute="top" secondItem="dbW-4o-Wy5" secondAttribute="top" id="BFc-VB-1a5"/>
+                            <constraint firstItem="xjV-eA-vG9" firstAttribute="bottom" secondItem="dbW-4o-Wy5" secondAttribute="bottom" id="Exf-AF-QYv"/>
+                            <constraint firstItem="ath-GT-rfK" firstAttribute="centerX" secondItem="dbW-4o-Wy5" secondAttribute="centerX" id="JRD-Mc-dpF"/>
+                            <constraint firstItem="Nj1-a2-LQk" firstAttribute="bottom" secondItem="dbW-4o-Wy5" secondAttribute="bottom" id="YqR-iC-bPs"/>
+                            <constraint firstItem="ath-GT-rfK" firstAttribute="centerY" secondItem="dbW-4o-Wy5" secondAttribute="centerY" id="dXf-Mk-VmD"/>
+                            <constraint firstItem="xjV-eA-vG9" firstAttribute="leading" secondItem="dbW-4o-Wy5" secondAttribute="leading" id="di9-Ab-PCK"/>
+                            <constraint firstItem="xjV-eA-vG9" firstAttribute="top" secondItem="dbW-4o-Wy5" secondAttribute="top" id="fPR-mX-4c6"/>
+                            <constraint firstItem="xjV-eA-vG9" firstAttribute="trailing" secondItem="dbW-4o-Wy5" secondAttribute="trailing" id="h2U-hE-paU"/>
+                            <constraint firstItem="Nj1-a2-LQk" firstAttribute="trailing" secondItem="dbW-4o-Wy5" secondAttribute="trailing" id="ibo-xd-6fo"/>
+                            <constraint firstItem="Nj1-a2-LQk" firstAttribute="leading" secondItem="dbW-4o-Wy5" secondAttribute="leading" id="wk7-b2-dPQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2L4-fc-qOX"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundConfettiView" destination="xjV-eA-vG9" id="XhI-Oo-AZf"/>
+                        <outlet property="foregroundConfettiView" destination="Nj1-a2-LQk" id="Wjj-0N-cQl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOd-91-0Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-495.19999999999999" y="-6.746626686656672"/>
+        </scene>
+    </scenes>
+</document>
