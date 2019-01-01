@@ -9,9 +9,8 @@
 import UIKit
 import QuartzCore
 import SceneKit
-import CoreMotion
 
-class ConfettiView: SCNView, SCNSceneRendererDelegate {
+class ConfettiView: SCNView {
 
     // MARK: - Data Types
 
@@ -27,13 +26,13 @@ class ConfettiView: SCNView, SCNSceneRendererDelegate {
 
     // MARK: - Private Properties
 
-//    private let motionManager = CMMotionManager.init()
+    private let confettiForeground = SCNParticleSystem(named: "Confetti.scnassets/ConfettiForeground.scnp",
+                                                       inDirectory: nil)!
+    private let confettiBackground = SCNParticleSystem(named: "Confetti.scnassets/ConfettiBackground.scnp",
+                                                       inDirectory: nil)!
 
-    private let confetti = SCNParticleSystem(named: "art.scnassets/Confetti.scnp", inDirectory: nil)!
-    private let backgroundConfetti = SCNParticleSystem(named: "art.scnassets/ConfettiBackground.scnp", inDirectory: nil)!
-
-    private var confettiDispenser: SCNNode!
-    private var backgroundConfettiDispenser: SCNNode!
+    private var confettiForegroundDispenser: SCNNode!
+    private var confettiBackgroundDispenser: SCNNode!
 
     private var cameraNode: SCNNode!
 
@@ -52,41 +51,29 @@ class ConfettiView: SCNView, SCNSceneRendererDelegate {
     // MARK: - Functions
 
     func dispense() {
-        //motionManager.startDeviceMotionUpdates()
-
         switch confettiMode {
         case .foreground:
-            confettiDispenser.addParticleSystem(confetti)
+            confettiForegroundDispenser.addParticleSystem(confettiForeground)
         case .background:
-            backgroundConfettiDispenser.addParticleSystem(backgroundConfetti)
+            confettiBackgroundDispenser.addParticleSystem(confettiBackground)
         case .both:
-            confettiDispenser.addParticleSystem(confetti)
-            backgroundConfettiDispenser.addParticleSystem(backgroundConfetti)
+            confettiForegroundDispenser.addParticleSystem(confettiForeground)
+            confettiBackgroundDispenser.addParticleSystem(confettiBackground)
         }
     }
 
     // MARK: - Private Functions
 
     private func setup() {
-        scene = SCNScene(named: "art.scnassets/scene.scn")!
+        scene = SCNScene(named: "Confetti.scnassets/scene.scn")!
 
         cameraNode = scene!.rootNode.childNode(withName: "Camera", recursively: true)!
-        confettiDispenser = scene!.rootNode.childNode(withName: "ConfettiDispenser", recursively: true)!
-        backgroundConfettiDispenser = scene!.rootNode.childNode(withName: "BackgroundConfettiDispenser",
-                                                               recursively: true)!
+        confettiForegroundDispenser = scene!.rootNode.childNode(withName: "ConfettiForegroundDispenser",
+                                                                recursively: true)!
+        confettiBackgroundDispenser = scene!.rootNode.childNode(withName: "ConfettiBackgroundDispenser",
+                                                                recursively: true)!
 
         backgroundColor = UIColor.clear
-
-        delegate = self
     }
-
-//    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-//        if let attitude = motionManager.deviceMotion?.attitude {
-//            let clampedYaw = max(min(attitude.yaw, Double.pi / 2.0), -Double.pi / 2.0)
-//            let x = (clampedYaw / (Double.pi / 2)) * -9.8
-//
-//            scene.physicsWorld.gravity = SCNVector3(CGFloat(x), -9.8, 0)
-//        }
-//    }
 
 }

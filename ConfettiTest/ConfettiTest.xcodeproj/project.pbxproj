@@ -9,25 +9,23 @@
 /* Begin PBXBuildFile section */
 		D23BB97821D2F1000075B689 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BB97721D2F1000075B689 /* ConfettiView.swift */; };
 		D2B999E821D2E0FC00947143 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B999E721D2E0FC00947143 /* AppDelegate.swift */; };
-		D2B999EA21D2E0FC00947143 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B999E921D2E0FC00947143 /* art.scnassets */; };
+		D2B999EA21D2E0FC00947143 /* Confetti.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B999E921D2E0FC00947143 /* Confetti.scnassets */; };
 		D2B999EC21D2E0FC00947143 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B999EB21D2E0FC00947143 /* MainViewController.swift */; };
 		D2B999EF21D2E0FC00947143 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B999ED21D2E0FC00947143 /* Main.storyboard */; };
 		D2B999F121D2E0FE00947143 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B999F021D2E0FE00947143 /* Assets.xcassets */; };
 		D2B999F421D2E0FE00947143 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B999F221D2E0FE00947143 /* LaunchScreen.storyboard */; };
-		D2B99A0121D2E1A200947143 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B999FF21D2E1A200947143 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D23BB97721D2F1000075B689 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D2B999E421D2E0FC00947143 /* ConfettiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConfettiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B999E721D2E0FC00947143 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2B999E921D2E0FC00947143 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D2B999E921D2E0FC00947143 /* Confetti.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Confetti.scnassets; sourceTree = "<group>"; };
 		D2B999EB21D2E0FC00947143 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D2B999EE21D2E0FC00947143 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2B999F021D2E0FE00947143 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B999F321D2E0FE00947143 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B999F521D2E0FE00947143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2B999FF21D2E1A200947143 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B999E721D2E0FC00947143 /* AppDelegate.swift */,
-				D2B999FF21D2E1A200947143 /* spark.png */,
-				D2B999E921D2E0FC00947143 /* art.scnassets */,
+				D2B999E921D2E0FC00947143 /* Confetti.scnassets */,
 				D2B999EB21D2E0FC00947143 /* MainViewController.swift */,
 				D2B999ED21D2E0FC00947143 /* Main.storyboard */,
 				D2B999F021D2E0FE00947143 /* Assets.xcassets */,
@@ -131,10 +128,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B999EA21D2E0FC00947143 /* art.scnassets in Resources */,
+				D2B999EA21D2E0FC00947143 /* Confetti.scnassets in Resources */,
 				D2B999F421D2E0FE00947143 /* LaunchScreen.storyboard in Resources */,
 				D2B999F121D2E0FE00947143 /* Assets.xcassets in Resources */,
-				D2B99A0121D2E1A200947143 /* spark.png in Resources */,
 				D2B999EF21D2E0FC00947143 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
