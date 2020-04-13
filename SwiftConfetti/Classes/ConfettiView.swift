@@ -38,14 +38,8 @@ public final class ConfettiView: SCNView {
 
     // MARK: - Private Properties
 
-//    private let confettiForeground = SCNParticleSystem(named: Resources.foregroundParticlesFileName,
-//                                                       inDirectory: Resources.resourceDirectory)!
-//    private let confettiBackground = SCNParticleSystem(named: Resources.foregroundParticlesFileName,
-//                                                       inDirectory: Resources.resourceDirectory)!
-
-
-    private let confettiForeground = ForegroundParticle()
-    private let confettiBackground = ForegroundParticle()
+    private let confettiForeground = ConfettiParticle(placement: .foreground)
+    private let confettiBackground = ConfettiParticle(placement: .background)
 
     private var confettiForegroundDispenser: SCNNode!
     private var confettiBackgroundDispenser: SCNNode!
