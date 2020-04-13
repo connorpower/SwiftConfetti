@@ -20,18 +20,6 @@ public final class ConfettiView: SCNView {
         case both
     }
 
-    // MARK: - Constants
-
-    private struct Resources {
-        static let sceneURL = Bundle.frameworkBundle.url(forResource: "Confetti.scnassets/scene", withExtension: "scn")!
-    }
-
-    private struct NodeNames {
-        static let camera = "Camera"
-        static let foregroundDispenser = "ConfettiForegroundDispenser"
-        static let backgroundDispenser = "ConfettiForegroundDispenser"
-    }
-
     // MARK: - Properties
 
     public var confettiMode = ConfettiMode.foreground
@@ -40,11 +28,7 @@ public final class ConfettiView: SCNView {
 
     private let confettiForeground = ConfettiParticle(placement: .foreground)
     private let confettiBackground = ConfettiParticle(placement: .background)
-
-    private var confettiForegroundDispenser: SCNNode!
-    private var confettiBackgroundDispenser: SCNNode!
-
-    private var cameraNode: SCNNode!
+    private let confettiScene = Scene()
 
     // MARK: - Initialization
 
@@ -68,12 +52,12 @@ public final class ConfettiView: SCNView {
     public func dispense() {
         switch confettiMode {
         case .foreground:
-            confettiForegroundDispenser.addParticleSystem(confettiForeground)
+            confettiScene.foregroundDispenser.addParticleSystem(confettiForeground)
         case .background:
-            confettiBackgroundDispenser.addParticleSystem(confettiBackground)
+           confettiScene.backgroundDispenser.addParticleSystem(confettiBackground)
         case .both:
-            confettiForegroundDispenser.addParticleSystem(confettiForeground)
-            confettiBackgroundDispenser.addParticleSystem(confettiBackground)
+            confettiScene.foregroundDispenser.addParticleSystem(confettiForeground)
+            confettiScene.backgroundDispenser.addParticleSystem(confettiBackground)
         }
     }
 
@@ -81,15 +65,7 @@ public final class ConfettiView: SCNView {
 
     private func setup() {
         isUserInteractionEnabled = false
-
-        scene = try! SCNScene(url: Resources.sceneURL)
-
-        cameraNode = scene!.rootNode.childNode(withName: NodeNames.camera, recursively: true)!
-        confettiForegroundDispenser = scene!.rootNode.childNode(withName: NodeNames.foregroundDispenser,
-                                                                recursively: true)!
-        confettiBackgroundDispenser = scene!.rootNode.childNode(withName: NodeNames.backgroundDispenser,
-                                                                recursively: true)!
-
+        scene = confettiScene
         backgroundColor = UIColor.clear
     }
 

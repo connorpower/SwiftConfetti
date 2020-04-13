@@ -30,6 +30,6 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'SwiftConfetti/Classes/**/*'
-  s.resources = ['SwiftConfetti/Assets/*.png', 'SwiftConfetti/Assets/Confetti.scnassets']
+  s.resources = ['SwiftConfetti/Assets/*.png']
   s.frameworks = 'SceneKit', 'QuartzCore'
 end
