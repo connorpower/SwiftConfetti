@@ -50,6 +50,8 @@ public final class ConfettiView: SCNView {
     // MARK: - Functions
 
     public func dispense() {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
         switch confettiMode {
         case .foreground:
             confettiScene.foregroundDispenser.addParticleSystem(confettiForeground)
