@@ -1,0 +1,16 @@
+PODS:
+  - SwiftConfetti (0.1.0)
+
+DEPENDENCIES:
+  - SwiftConfetti (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftConfetti:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftConfetti: 4ef077bee077c021ca54c9b7096a984f2387eff8
+
+PODFILE CHECKSUM: 188080e1d8d2f984d06f80af0eb18a1705e4565c
+
+COCOAPODS: 1.9.1
