@@ -14,7 +14,7 @@ public class ConfettiView: UIView {
 
     // MARK: - Data Types
 
-    public enum ConfettiMode {
+    public enum Placement {
         case foreground
         case background
         case both
@@ -22,7 +22,7 @@ public class ConfettiView: UIView {
 
     // MARK: - Properties
 
-    public var confettiMode = ConfettiMode.foreground
+    public var placement = Placement.foreground
 
     private lazy var sceneView: SCNView! = {
         let options: [String: NSNumber] = [
@@ -34,9 +34,7 @@ public class ConfettiView: UIView {
 
     // MARK: - Private Properties
 
-    private let confettiForeground = ConfettiParticle(placement: .foreground)
-    private let confettiBackground = ConfettiParticle(placement: .background)
-    private let confettiScene = Scene()
+    private let confettiScene = ConfettiScene()
 
     // MARK: - Initialization
 
@@ -54,16 +52,7 @@ public class ConfettiView: UIView {
 
     public func dispense() {
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-
-        switch confettiMode {
-        case .foreground:
-            confettiScene.foregroundDispenser.addParticleSystem(confettiForeground)
-        case .background:
-           confettiScene.backgroundDispenser.addParticleSystem(confettiBackground)
-        case .both:
-            confettiScene.foregroundDispenser.addParticleSystem(confettiForeground)
-            confettiScene.backgroundDispenser.addParticleSystem(confettiBackground)
-        }
+        confettiScene.dispense(placement: placement)
     }
 
     // MARK: - Private Functions

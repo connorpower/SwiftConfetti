@@ -18,7 +18,7 @@ import SceneKit
  The `background` mode dispenses smaller, blurred confetti particles
  which give the effect of being somewhat far away in the distance.
  */
-class ConfettiParticleSystem: SCNParticleSystem {
+final class ConfettiParticleSystem: SCNParticleSystem {
 
     // MARK: - Data Types
 

@@ -10,23 +10,54 @@ import SceneKit
 
 final class ConfettiScene: SCNScene {
 
-    // MARK: - Properties
+    // MARK: - Private Properties
 
-    lazy var backgroundDispenser: SCNNode! = {
-        let node = SCNNode()
-        node.name = "ConfettiBackgroundDispenser"
-        node.position = SCNVector3(0.0, 14.0, -5.0)
-        return node
-    }()
+    /**
+     A particle system which will dispense a short-lived burst of
+     confetti particles when attached to a node. The confetti
+     particles will be regular size and in-focus, suitable for
+     default use.
+     */
+    private let confettiForeground = ConfettiParticleSystem(placement: .foreground)
 
-    lazy var foregroundDispenser: SCNNode! = {
+    /**
+     A particle system which will dispense a short-lived burst of
+     confetti particles when attached to a node. The confetti
+     particles will be blurred and slightly smaller than those in
+     `confettiForeground`, giving the effect that they are in the
+     background.
+     */
+    private let confettiBackground = ConfettiParticleSystem(placement: .background)
+
+    /**
+     A textureless node to which a `ConfettiParticleSystem` can be
+     attached. It is placed in front of the camera, just above the
+     camera's field of view.
+     */
+    private lazy var foregroundDispenser: SCNNode! = {
         let node = SCNNode()
         node.name = "ConfettiForegroundDispenser"
         node.position = SCNVector3(0.0, 12.0, -2.0)
         return node
     }()
 
-    lazy var camera: SCNNode! = {
+    /**
+     A textureless node to which a `ConfettiParticleSystem` can be
+     attached. It is placed in front of the camera, further back
+     than `foregroundDispenser` and just above the camera's field
+     of view.
+     */
+    private lazy var backgroundDispenser: SCNNode! = {
+        let node = SCNNode()
+        node.name = "ConfettiBackgroundDispenser"
+        node.position = SCNVector3(0.0, 14.0, -5.0)
+        return node
+    }()
+
+    /**
+     A camera node with attached omnidirectional light.
+     */
+    private lazy var camera: SCNNode! = {
         let node = SCNNode()
         node.name = "Camera"
         node.position = SCNVector3(0.0, 0.0, 15.0)
@@ -41,7 +72,7 @@ final class ConfettiScene: SCNScene {
         return node
     }()
 
-    lazy var directionalLight: SCNNode! = {
+    private lazy var directionalLight: SCNNode! = {
         let node = SCNNode()
         node.name = "DirectionalLight"
         node.position = SCNVector3(-22, -1.8, 28)
@@ -67,6 +98,28 @@ final class ConfettiScene: SCNScene {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Private Functions
+
+    /**
+     Dispense confetti applicable for the given placement.
+
+     - parameter placement: If `both`, then both the foreground and
+     background dispensers will dispenese the approprite confetti
+     particles. If `foreground` or `background`, then only one of
+     the dispensers will dispense confetti, respectively.
+     */
+    public func dispense(placement: ConfettiView.Placement) {
+        switch placement {
+        case .foreground:
+            foregroundDispenser.addParticleSystem(confettiForeground)
+        case .background:
+            backgroundDispenser.addParticleSystem(confettiBackground)
+        case .both:
+            foregroundDispenser.addParticleSystem(confettiForeground)
+            backgroundDispenser.addParticleSystem(confettiBackground)
+        }
     }
 
     // MARK: - Private Functions
