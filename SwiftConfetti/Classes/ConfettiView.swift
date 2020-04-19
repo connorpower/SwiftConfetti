@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-public final class ConfettiView: SCNView {
+public class ConfettiView: UIView {
 
     // MARK: - Data Types
 
@@ -24,6 +24,14 @@ public final class ConfettiView: SCNView {
 
     public var confettiMode = ConfettiMode.foreground
 
+    private lazy var sceneView: SCNView! = {
+        let options: [String: NSNumber] = [
+            SCNView.Option.preferLowPowerDevice.rawValue : NSNumber(booleanLiteral: true),
+            SCNView.Option.preferredDevice.rawValue: NSNumber(value: SCNRenderingAPI.metal.rawValue)
+        ]
+        return SCNView(frame: .zero, options: options)
+    }()
+
     // MARK: - Private Properties
 
     private let confettiForeground = ConfettiParticle(placement: .foreground)
@@ -31,11 +39,6 @@ public final class ConfettiView: SCNView {
     private let confettiScene = Scene()
 
     // MARK: - Initialization
-
-    public override init(frame: CGRect, options: [String : Any]? = nil) {
-        super.init(frame: frame, options: options)
-        setup()
-    }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,8 +69,21 @@ public final class ConfettiView: SCNView {
     // MARK: - Private Functions
 
     private func setup() {
+        sceneView.scene = confettiScene
+
+        addSubview(sceneView)
+        sceneView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sceneView.topAnchor.constraint(equalTo: topAnchor),
+            sceneView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            sceneView.leftAnchor.constraint(equalTo: leftAnchor),
+            sceneView.rightAnchor.constraint(equalTo: rightAnchor)
+        ])
+
+        sceneView.isUserInteractionEnabled = false
+        sceneView.backgroundColor = UIColor.clear
+
         isUserInteractionEnabled = false
-        scene = confettiScene
         backgroundColor = UIColor.clear
     }
 
