@@ -1,5 +1,5 @@
 PODS:
-  - SwiftConfetti (0.1.0)
+  - SwiftConfetti (1.0.0)
 
 DEPENDENCIES:
   - SwiftConfetti (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftConfetti: ee31d23bc4ebd520bc6ee532e64208b52eba48bb
+  SwiftConfetti: 9da45980cd361a7c6427eab0286fd1004f74faf2
 
 PODFILE CHECKSUM: 188080e1d8d2f984d06f80af0eb18a1705e4565c
 
