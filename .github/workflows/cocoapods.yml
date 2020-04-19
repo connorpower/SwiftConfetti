@@ -24,4 +24,4 @@ jobs:
            build
       working-directory: ./Example
     - name: Lint
-      run: pod lib int
+      run: pod lib lint
