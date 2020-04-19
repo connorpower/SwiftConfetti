@@ -29,22 +29,12 @@ final class ConfettiScene: SCNScene {
     lazy var camera: SCNNode! = {
         let node = SCNNode()
         node.name = "Camera"
-        node.position = SCNVector3(0, 0, 15)
-
-        let lightNode = SCNNode()
-        lightNode.position = SCNVector3(0.0, 0.0, 1.82)
-        lightNode.light = {
-            let light = SCNLight()
-            light.name = "OmniLight"
-            light.type = .omni
-            light.intensity = 1100
-            return light
-        }()
-
+        node.position = SCNVector3(0.0, 0.0, 15.0)
         node.camera = {
             let camera = SCNCamera()
             camera.wantsDepthOfField = true
-            node.camera = camera
+            camera.focalLength = 20.785
+            camera.fieldOfView = 60.0
             return camera
         }()
 
@@ -54,14 +44,14 @@ final class ConfettiScene: SCNScene {
     lazy var directionalLight: SCNNode! = {
         let node = SCNNode()
         node.name = "DirectionalLight"
-        node.position = SCNVector3(-30, 0, 28)
-        node.eulerAngles = SCNVector3(0.0, -40.0, 0.0)
+        node.position = SCNVector3(-22, -1.8, 28)
+        node.eulerAngles = SCNVector3(31.0, -38.0, -14.0)
 
         node.light = {
             let light = SCNLight()
             light.name = "DirectionalLight"
             light.type = .directional
-            light.intensity = 1000
+            light.intensity = 1300
             return light
         }()
 

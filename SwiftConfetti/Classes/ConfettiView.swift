@@ -70,6 +70,7 @@ public class ConfettiView: UIView {
 
     private func setup() {
         sceneView.scene = confettiScene
+        sceneView.autoenablesDefaultLighting = false
 
         addSubview(sceneView)
         sceneView.translatesAutoresizingMaskIntoConstraints = false

@@ -101,6 +101,7 @@ class ConfettiParticleSystem: SCNParticleSystem {
     private func setupDefaults() {
         emittingDirection = SCNVector3(0.0, -1.0, 0.0)
         particleAngle = 180.0
+        spreadingAngle = 180.0
         particleAngleVariation = 45.0
         emitterShape = SCNPlane(width: 15.0, height: 5.0)
 
@@ -129,6 +130,11 @@ class ConfettiParticleSystem: SCNParticleSystem {
 
         emissionDuration = 0.5
         loops = false
+
+        isLightingEnabled = true
+        sortingMode = .distance
+        blendMode = .alpha
+        orientationMode = .free
     }
 
     private func customizeForPlacement() {
