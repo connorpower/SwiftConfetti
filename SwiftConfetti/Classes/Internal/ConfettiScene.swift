@@ -8,6 +8,14 @@
 import Foundation
 import SceneKit
 
+/**
+ A `ConfettiScene` is a SceneKit scene comprising a camera, lighting
+ and two slightly out of view nodes from which confetti can be dispensed.
+ The camera is positioned so that the nodes from which confetti is
+ dispensed are ever so slightly out of view above the top edge of the
+ screen which gives the impression that confetti is raining down from
+ some out-of-view dispenser above the screen.
+ */
 final class ConfettiScene: SCNScene {
 
     // MARK: - Private Properties
