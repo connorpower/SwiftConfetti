@@ -8,7 +8,7 @@
 import Foundation
 import SceneKit
 
-final class Scene: SCNScene {
+final class ConfettiScene: SCNScene {
 
     // MARK: - Properties
 

@@ -1,5 +1,5 @@
 //
-//  ConfettiParticle.swift
+//  ConfettiParticleSystem.swift
 //  SwiftConfetti
 //
 //  Created by Connor Power on 12/04/20.
@@ -8,12 +8,38 @@
 import Foundation
 import SceneKit
 
-class ConfettiParticle: SCNParticleSystem {
+/**
+ `ConfettiParticleSystem` is a SceneKit particle system which creates a
+ short-lived confetti effect. It should be attached to the scene
+ each time confetti should be dispensed.
+
+ Two modes exist - `foreground` and `background`. The `foreground`
+ mode dispenses confetti particles as they might be expected to look.
+ The `background` mode dispenses smaller, blurred confetti particles
+ which give the effect of being somewhat far away in the distance.
+ */
+class ConfettiParticleSystem: SCNParticleSystem {
 
     // MARK: - Data Types
 
+    /**
+     A `Placement` dictates particle systems visual style. The `foreground`
+     mode dispenses confetti particles as they might be expected to look.
+     The `background` mode dispenses smaller, blurred confetti particles
+     which give the effect of being somewhat far away in the distance.
+     */
     enum Placement {
+        /**
+         Crisp, regular-sized confetti particles. If only one particle system
+         is used, then `foreground` should be used as the default.
+         */
         case foreground
+
+        /**
+         Slightly smaller, blurred confetti particles which give the
+         appearance of being further in the background relative to
+         `foreground`.
+         */
         case background
 
         fileprivate var configuration: Configuration {
@@ -51,6 +77,14 @@ class ConfettiParticle: SCNParticleSystem {
 
     // MARK: - Initialization
 
+    /**
+     Creates a new `ConfettiParticleSystem` to be added to a SceneKit scene.
+     Each time confetti is dispensed, a new `ConfettiParticleSystem` should
+     be created nd attached.
+
+     - parameter placement: Configures the particle system's visual properties
+     for a given placement.
+     */
     required init(placement: Placement) {
         self.placement = placement
         super.init()
@@ -106,4 +140,3 @@ class ConfettiParticle: SCNParticleSystem {
     }
 
 }
-
