@@ -122,7 +122,7 @@ final class ConfettiScene: SCNScene {
     public func dispense(placement: ConfettiView.Placement) {
         let lifeSpan = DispatchTimeInterval.seconds(Int(ConfettiParticleSystem.lifeSpan))
 
-        if placement == .foreground || placement == .both {
+        if placement == .foreground || placement == .`default` {
             let particleSystem = ConfettiParticleSystem(placement: .foreground)
             foregroundDispenser.addParticleSystem(particleSystem)
             DispatchQueue.main.asyncAfter(deadline: .now() + lifeSpan) { [weak self] in
@@ -130,7 +130,7 @@ final class ConfettiScene: SCNScene {
             }
         }
 
-        if placement == .background || placement == .both {
+        if placement == .background || placement == .`default` {
             let particleSystem = ConfettiParticleSystem(placement: .background)
             backgroundDispenser.addParticleSystem(particleSystem)
             DispatchQueue.main.asyncAfter(deadline: .now() + lifeSpan) { [weak self] in
