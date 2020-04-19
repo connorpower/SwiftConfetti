@@ -1,6 +1,8 @@
 # SwiftConfetti
 
-[![CI Status](https://img.shields.io/travis/Connor Power/SwiftConfetti.svg?style=flat)](https://travis-ci.org/Connor Power/SwiftConfetti)
+[![CI Status — SPM](https://github.com/connorpower/SwiftConfetti/workflows/SPM/badge.svg)](https://github.com/connorpower/SwiftConfetti/workflows/SPM)
+
+[![CI Status — Cocoapods](https://github.com/connorpower/SwiftConfetti/workflows/Cocoapods/badge.svg)](https://github.com/connorpower/SwiftConfetti/workflows/Cocoapods)
 [![Version](https://img.shields.io/cocoapods/v/SwiftConfetti.svg?style=flat)](https://cocoapods.org/pods/SwiftConfetti)
 [![License](https://img.shields.io/cocoapods/l/SwiftConfetti.svg?style=flat)](https://cocoapods.org/pods/SwiftConfetti)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftConfetti.svg?style=flat)](https://cocoapods.org/pods/SwiftConfetti)
