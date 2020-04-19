@@ -39,23 +39,6 @@ final class ConfettiScene: SCNScene {
     // MARK: - Private Properties
 
     /**
-     A particle system which will dispense a short-lived burst of
-     confetti particles when attached to a node. The confetti
-     particles will be regular size and in-focus, suitable for
-     default use.
-     */
-    private let confettiForeground = ConfettiParticleSystem(placement: .foreground)
-
-    /**
-     A particle system which will dispense a short-lived burst of
-     confetti particles when attached to a node. The confetti
-     particles will be blurred and slightly smaller than those in
-     `confettiForeground`, giving the effect that they are in the
-     background.
-     */
-    private let confettiBackground = ConfettiParticleSystem(placement: .background)
-
-    /**
      A textureless node to which a `ConfettiParticleSystem` can be
      attached. It is placed in front of the camera, just above the
      camera's field of view.
@@ -137,14 +120,22 @@ final class ConfettiScene: SCNScene {
      the dispensers will dispense confetti, respectively.
      */
     public func dispense(placement: ConfettiView.Placement) {
-        switch placement {
-        case .foreground:
-            foregroundDispenser.addParticleSystem(confettiForeground)
-        case .background:
-            backgroundDispenser.addParticleSystem(confettiBackground)
-        case .both:
-            foregroundDispenser.addParticleSystem(confettiForeground)
-            backgroundDispenser.addParticleSystem(confettiBackground)
+        let lifeSpan = DispatchTimeInterval.seconds(Int(ConfettiParticleSystem.lifeSpan))
+
+        if placement == .foreground || placement == .both {
+            let particleSystem = ConfettiParticleSystem(placement: .foreground)
+            foregroundDispenser.addParticleSystem(particleSystem)
+            DispatchQueue.main.asyncAfter(deadline: .now() + lifeSpan) { [weak self] in
+                self?.foregroundDispenser.removeParticleSystem(particleSystem)
+            }
+        }
+
+        if placement == .background || placement == .both {
+            let particleSystem = ConfettiParticleSystem(placement: .background)
+            backgroundDispenser.addParticleSystem(particleSystem)
+            DispatchQueue.main.asyncAfter(deadline: .now() + lifeSpan) { [weak self] in
+                self?.backgroundDispenser.removeParticleSystem(particleSystem)
+            }
         }
     }
 

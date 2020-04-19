@@ -89,6 +89,14 @@ final class ConfettiParticleSystem: SCNParticleSystem {
         let particleSize: CGFloat
     }
 
+    // MARK: - Class Properties
+
+    /**
+     The duration, in seconds, for which each particle is rendered
+     before being removed from the scene.
+     */
+    static let lifeSpan: CGFloat = 10.0
+
     // MARK: - Properties
 
     let placement: Placement
@@ -123,7 +131,7 @@ final class ConfettiParticleSystem: SCNParticleSystem {
         particleAngleVariation = 45.0
         emitterShape = SCNPlane(width: 15.0, height: 5.0)
 
-        particleLifeSpan = 20.0
+        particleLifeSpan = Self.lifeSpan
         particleVelocity = 5.0
         particleVelocityVariation = 10.0
         particleAngularVelocity = 300.0
