@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,125 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-F8-pZX" userLabel="Background Dispenser" customClass="ConfettiView" customModule="SwiftConfetti">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="Vpn-bj-J9U" userLabel="Example Content">
+                                <rect key="frame" x="80" y="64" width="215" height="377"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n38-E6-CFv">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="83"/>
+                                        <color key="backgroundColor" red="0.82081425190000001" green="0.81247907880000003" blue="0.9804133773" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="3" height="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtx-hE-A9O">
+                                        <rect key="frame" x="0.0" y="147" width="215" height="83"/>
+                                        <color key="backgroundColor" red="0.81314408780000003" green="0.92422467470000003" blue="0.99216848609999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="3" height="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lsw-ob-cxl">
+                                        <rect key="frame" x="0.0" y="294" width="215" height="83"/>
+                                        <color key="backgroundColor" red="0.89470732210000004" green="0.95248240230000003" blue="0.97647601370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="3" height="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwW-x3-Em2" userLabel="Button">
+                                <rect key="frame" x="118" y="473" width="139" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title="Dispense Confetti"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="2" height="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dispenseConfetti:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="s2b-3M-DuI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-aZ-Nni" userLabel="Foreground Dispenser" customClass="ConfettiView" customModule="SwiftConfetti">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vpn-bj-J9U" secondAttribute="trailing" constant="64" id="0ZC-l7-5Gg"/>
+                            <constraint firstItem="Vpn-bj-J9U" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="BWa-ZA-9v2"/>
+                            <constraint firstAttribute="bottom" secondItem="cZY-F8-pZX" secondAttribute="bottom" id="CbB-qc-J5Y"/>
+                            <constraint firstItem="cZY-F8-pZX" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="I8A-Gr-1jC"/>
+                            <constraint firstItem="YwW-x3-Em2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Mnc-Aw-8f3"/>
+                            <constraint firstItem="Vpn-bj-J9U" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="OMs-Ys-v1Y"/>
+                            <constraint firstItem="YwW-x3-Em2" firstAttribute="top" secondItem="Vpn-bj-J9U" secondAttribute="bottom" constant="32" id="RDd-U0-wly"/>
+                            <constraint firstAttribute="trailing" secondItem="pQf-aZ-Nni" secondAttribute="trailing" id="Zmb-eH-0GT"/>
+                            <constraint firstAttribute="trailing" secondItem="cZY-F8-pZX" secondAttribute="trailing" id="bIy-Sx-SVY"/>
+                            <constraint firstItem="cZY-F8-pZX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gxf-6X-uN0"/>
+                            <constraint firstAttribute="bottom" secondItem="pQf-aZ-Nni" secondAttribute="bottom" id="jNe-oJ-xx7"/>
+                            <constraint firstItem="pQf-aZ-Nni" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="oY8-Gr-1hK"/>
+                            <constraint firstItem="YwW-x3-Em2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="rhy-wm-arB"/>
+                            <constraint firstAttribute="bottom" secondItem="YwW-x3-Em2" secondAttribute="bottom" constant="32" id="xOC-ik-hNx"/>
+                            <constraint firstItem="pQf-aZ-Nni" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xVG-UY-tg9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundDispenser" destination="cZY-F8-pZX" id="pZm-6f-Cxe"/>
+                        <outlet property="foregroundDispenser" destination="pQf-aZ-Nni" id="8B2-TJ-MSx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="133"/>
         </scene>
     </scenes>
 </document>

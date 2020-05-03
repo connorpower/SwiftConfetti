@@ -69,15 +69,19 @@ final class ConfettiParticleSystem: SCNParticleSystem {
                 return .init(birthRate: 500,
                              spreadingAngle: 180.0,
                              particleImage: image,
-                             particleSize: 0.16)
+                             particleSize: 0.16,
+                             particleMass: 5.0,
+                             dampingFactor: 0.3)
             case .background:
                 let image = UIImage(named: "ConfettiBackground",
                                     in: Bundle.frameworkBundle,
                                     compatibleWith: nil)!
-                return .init(birthRate: 700,
+                return .init(birthRate: 400,
                              spreadingAngle: 45.0,
                              particleImage: image,
-                             particleSize: 0.13)
+                             particleSize: 0.13,
+                             particleMass: 1.0,
+                             dampingFactor: 0.8)
             }
         }
     }
@@ -87,6 +91,8 @@ final class ConfettiParticleSystem: SCNParticleSystem {
         let spreadingAngle: CGFloat
         let particleImage: UIImage
         let particleSize: CGFloat
+        let particleMass: CGFloat
+        let dampingFactor: CGFloat
     }
 
     // MARK: - Class Properties
@@ -148,12 +154,9 @@ final class ConfettiParticleSystem: SCNParticleSystem {
                                             alphaVariation)
 
         isAffectedByGravity = true
-        particleMass = 5.0
         particleMassVariation = 1.0
         particleBounce = 0.7
         particleFriction = 1.0
-        dampingFactor = 0.2
-
         emissionDuration = 0.5
         loops = false
 
@@ -169,6 +172,8 @@ final class ConfettiParticleSystem: SCNParticleSystem {
         spreadingAngle = config.spreadingAngle
         particleImage = config.particleImage
         particleSize = config.particleSize
+        particleMass = config.particleMass
+        dampingFactor = config.dampingFactor
     }
 
 }
