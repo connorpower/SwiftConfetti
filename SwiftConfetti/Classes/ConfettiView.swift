@@ -84,6 +84,38 @@ public class ConfettiView: UIView {
         case background
     }
 
+    // MARK: - Constants
+
+    /**
+     A notification name, which when observed by a `ConfettiView`, triggers
+     confetti to be dispensed.
+
+     ```swift
+     NotificationCenter.default.post(name: ConfettiView.DispenseConfettiNotification, object: nil)
+     ```
+
+     Calling the method `confettiView.dispense()` will also trigger confetti,
+     but the using a notification can be very useful. Generally, `ConfettiView`s
+     should be added to the view heirarchy — one above all content and one beneath
+     all content.
+
+     ```
+     [Top ConfettiView]
+     [UINavigationController]
+         [Visible ViewController]
+     [Bottom ConfettiView]
+     ```
+
+     In the above situation, it can be very difficult for the visible view controller
+     to directly invoke `topConfettiView.dispense()` and `bottomConfettiView.dispense()`
+     because they are not part of it's view heirarchy and it doesn't have any
+     references to them. In this case, the visiable view controller can simply post
+     a `ConfettiView.DispenseConfettiNotification` and the two dispensers will react
+     appropriately.
+     */
+    public static let DispenseConfettiNotification =
+        Notification.Name("com.connorpower.SwiftConfetti.dispense")
+
     // MARK: - Properties
 
     /**
@@ -110,6 +142,8 @@ public class ConfettiView: UIView {
 
     private let confettiScene = ConfettiScene()
 
+    private var dispenseNoficationObserver: Any?
+
     // MARK: - Initialization
 
     /**
@@ -128,6 +162,12 @@ public class ConfettiView: UIView {
         setup()
     }
 
+    deinit {
+        if let observer = dispenseNoficationObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+
     // MARK: - Functions
 
     /**
@@ -144,6 +184,14 @@ public class ConfettiView: UIView {
     // MARK: - Private Functions
 
     private func setup() {
+        configureScene()
+        observeNotifications()
+
+        isUserInteractionEnabled = false
+        backgroundColor = UIColor.clear
+    }
+
+    private func configureScene() {
         sceneView.scene = confettiScene
         sceneView.autoenablesDefaultLighting = false
 
@@ -158,9 +206,13 @@ public class ConfettiView: UIView {
 
         sceneView.isUserInteractionEnabled = false
         sceneView.backgroundColor = UIColor.clear
+    }
 
-        isUserInteractionEnabled = false
-        backgroundColor = UIColor.clear
+    private func observeNotifications() {
+        dispenseNoficationObserver = NotificationCenter.default.addObserver(
+            forName: ConfettiView.DispenseConfettiNotification,
+            object: nil,
+            queue: .main) { [weak self] _ in self?.dispense() }
     }
 
 }
